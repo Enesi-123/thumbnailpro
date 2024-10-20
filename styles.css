@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 70px;
+    position: absolute;
+    width: 100%;
+    z-index: 1000; }
+    /* Style the navigation bar */
+     div .thumbnail {
+        width: 150px;
+        position: absolute;
+        top: -20px;  /* Adjust this value to control vertical positioning */
+        right: 510px; /* Adjust this value to control horizontal positioning */
+    }
+.navbar {
+    list-style: none; /* Remove default bullet points */
+    display: flex; /* Align the links horizontally */
+    justify-content: space-between; /* Evenly space out the links */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    gap: 50px;
+    font-size: 28px;
+}
+.navigation {
+    position: relative;
+    display: flex;
+    right: 87px;
+}
+
+/* Style each list item */
+.navbar li {
+    margin: 0 10px; /* Adjust spacing between items */
+}
+
+/* Style the links */
+.navbar li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set link text color */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+}
+
+.navbar li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+body {
+    background-color: #0e0e0e;
+    font-family: 'Kanit', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(5, 7, 34, 0.95), rgba(0, 0, 0, 0.95)); /* Halved color intensity */
+    background-blend-mode: overlay;   
+    width: 100%;
+    height: 100%;
+}
+
+/* Centered Container */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-200px); /* Move the .main container 100px up */
+    z-index: 1;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Header and Navigation */
+.logo {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #00C4FF; /* Accent color */
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #00C4FF;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #0088AA; /* Darker hover color */
+}
+/* Call to Action */
+.cta-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    background-color: #00C4FF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #0088AA;
+}
+.clickbait {
+    color: gray;
+    position: relative;
+    top: -10px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    width: 100%;
+}
+    .cta-btn {
+        font-size: 1rem;
+    }
+}
+ .thumbnail {
+    width: 150px;
+    position: relative;
+    top: 20px;
+    padding: left 25px;
+ }
+ .video-container {
+    position: relative;
+    width: 500px; /* Set container width */
+    height: 300px; /* Set container height */
+    justify-content: center;
+    bottom: 175px;
+    margin-top: -100px; /* Adjust margin to avoid overlap */
+  }
+  .main {
+    display: flex;
+    justify-content: center;
+    margin-top: -100px; /* Adjust margin to avoid overlap */
+  }
+  .video-item {
+    position: absolute;
+    width: 280px;
+    transition: transform 1s ease; /* Smooth transition for sliding effect */
+    left: 116px;
+    bottom: 300px;
+
+  }
+  
+  #image1 {
+    transform: translateX(-100%); /* Start off-screen to the left */
+  }
+  
+  #image2 {
+    transform: translateX(0); /* Start in the center */
+  }
+  
+  #image3 {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  .edit-button {
+    display: flex;
+    justify-content: center; /* Center the Edit button horizontally */
+    margin:    auto;
+    width: 150px;
+    height: 50px;
+    bottom: 300px;
+}
+
+.edit-button .nav-links {
+    gap: 0; /* Remove any gap between the list items if needed */
+}
+
+/* Remove the problematic top offset */
+strong {
+    color: #d0ff00; /* Change this to any color you want */
+}
+ul .edit-links {
+    margin:0;
+}
+.edit-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #00C4FF;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.edit-links a:hover {
+    background-color: #0088AA; /* Darker hover color */
+}
+/* Call to Action */
+.cta-btn {
+    padding: 15px 40px;
+    background-color: #00C4FF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #0088AA;
+}
+.clickbait {
+    color: gray;
+    position: relative;
+    top: -10px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+    .cta-btn {
+        font-size: 1rem;
+    }
+}
+.edit-links a {
+    position: relative;
+    display: flex;
+    top: 325px;
+    right: 10px;
+}
+.yes {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    top: 40px;
+}
+ h2 {
+position: relative;
+display: flex;
+justify-content: center;
+height: 100px;
+font-size: 48px;
+}
+.thumbnail-text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    font-size: 24px;
+}
+.thumbnail-text2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    font-size: 24px;
+    color: blue;
+}
+#thumbnail-text2 {
+ position: relative;
+display: flex;
+justify-content: center;
+height: 60px;
+font-size: 24px;
+}
+.navbar-2 {
+    list-style: none; /* Remove default bullet points */
+    display: flex; /* Align the links horizontally */
+    justify-content: space-between; /* Evenly space out the links */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    gap: 50px;
+    font-size: 28px;
+    position: relative;
+    width: 617.33px;
+
+}
+navbar-2 li {
+    margin: 0 10px; /* Adjust spacing between items */
+}
+
+/* Style the links */
+.navbar-2 li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set link text color */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+}
+
+.navbar-2 li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+.navigation-2 {
+    position: relative;
+    display: flex;
+    right: 87px;
+}
+/* Pricing Section */
+.pricing-section {
+    text-align: center;
+    padding: 50px;
+}
+
+.pricing-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Plan Card */
+.plan-card {
+    background-color: #1a1a1a;
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: scale(1.05);
+    border-color: #00C4FF;
+}
+
+.plan-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00C4FF;
+}
+
+.plan-card .price {
+    font-size: 36px;
+    color: #d0ff00;
+    margin-bottom: 20px;
+}
+
+.plan-card .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.plan-card .features li {
+    margin: 10px 0;
+}
+
+.plan-card .cta-btn {
+    padding: 10px 20px;
+    background-color: #00C4FF;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.plan-card .cta-btn:hover {
+    background-color: #0088AA;
+}
