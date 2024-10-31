@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photopea Editor</title>
+</head>
+<body>
+    <iframe id="photopea" src="https://www.photopea.com" style="width: 100%; height: 100vh;"></iframe>
+
+    <script>
+        // Retrieve image URL from query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const imageUrl = urlParams.get('image');
+        
+        // Debugging: Log the image URL to make sure it’s retrieved correctly
+        console.log("Image URL:", imageUrl);
+
+        // Post message to load image in Photopea
+        const iframe = document.getElementById('photopea');
+        iframe.onload = function() {
+            if (imageUrl) {
+                console.log("Sending image URL to Photopea...");
+                iframe.contentWindow.postMessage(
+                    {
+                        files: [imageUrl]
+                    },
+                    "https://www.photopea.com"
+                );
+            } else {
+                console.error("No image URL found in query parameters.");
+            }
+        };
+
+        // Listen for any response from Photopea for debugging
+        window.addEventListener("message", function(event) {
+            if (event.origin === "https://www.photopea.com") {
+                console.log("Message from Photopea:", event.data);
+            }
+        });
+    </script>
+</body>
+</html>

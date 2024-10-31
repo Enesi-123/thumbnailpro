@@ -65,6 +65,33 @@ body {
     width: 100%;
     height: 100%;
 }
+/* Custom scrollbar for Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+/* Track (scrollbar background) */
+::-webkit-scrollbar-track {
+    background: #1e1e2e; /* Dark background for the scrollbar track */
+    border-radius: 10px; /* Rounded edges for the track */
+}
+
+/* Handle (scrollbar thumb) */
+::-webkit-scrollbar-thumb {
+    background: #1900ff; /* Purple color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded edges for the thumb */
+}
+
+/* Hover state for scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #1201a3; /* Slightly darker purple on hover */
+}
+
+/* Scrollbar for Firefox (using scrollbar-width and scrollbar-color properties) */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #11377e #1e1e2e; /* Thumb and track colors */
+}
 
 /* Centered Container */
 .container {
@@ -181,20 +208,27 @@ body {
   #image3 {
     transform: translateX(100%); /* Start off-screen to the right */
   }
-  .edit-button {
-    display: flex;
-    justify-content: center; /* Center the Edit button horizontally */
-    margin:    auto;
-    width: 150px;
-    height: 50px;
-    bottom: 300px;
+  .edit-links {
+    list-style: none; /* Remove default bullet points */
+    display: flex; /* Align the links horizontally */
+    justify-content: space-between; /* Evenly space out the links */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    gap: 50px;
+    font-size: 28px;
+}
+/* Style each list item */
+.edit-links li {
+    margin: 0 10px; /* Adjust spacing between items */
 }
 
-.edit-button .nav-links {
-    gap: 0; /* Remove any gap between the list items if needed */
+/* Style the links */
+.edit-links li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set link text color */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
 }
-
-/* Remove the problematic top offset */
 strong {
     color: #d0ff00; /* Change this to any color you want */
 }
@@ -209,10 +243,6 @@ ul .edit-links {
     background-color: #00C4FF;
     border-radius: 8px;
     transition: background-color 0.3s;
-}
-
-.edit-links a:hover {
-    background-color: #0088AA; /* Darker hover color */
 }
 /* Call to Action */
 .cta-btn {
@@ -380,4 +410,18 @@ navbar-2 li {
 
 .plan-card .cta-btn:hover {
     background-color: #0088AA;
+}
+#photopea-container {
+    width: 100%;
+    height: 600px; /* Adjust as needed */
+    margin: 20px 0;
+}
+.editor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    font-size: 48px;
+    color: blue;
+    top: 425px;
 }
