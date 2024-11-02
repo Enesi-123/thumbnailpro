@@ -1,5 +1,5 @@
 const images = document.querySelectorAll('.video-item');
-let currentIndex = 0; // Start with the first image
+let currentIndex = 0; 
 
 function updateImages() {
     images.forEach((img, index) => {
@@ -23,4 +23,26 @@ updateImages(); // Initial call
 fetch('header.html')
   .then(response => response.text())
   .then(data => document.getElementById('header').innerHTML = data);
+  const selectedTags = [];
+ 
+  function applyFilters() {
+    const searchValue = document.getElementById('searchInput').value.toLowerCase();
+    const selectedCategory = document.getElementById('categorySelect').value;
+    const templateList = document.getElementById('templateList');
+    const templates = Array.from(templateList.children);
 
+    templates.forEach(template => {
+        const templateText = template.textContent.toLowerCase();
+        const templateCategory = template.dataset.category;
+
+        const matchesSearch = templateText.includes(searchValue);
+        const matchesCategory = selectedCategory === 'all' || templateCategory === selectedCategory;
+
+
+        if (matchesSearch && matchesCategory) {
+            template.style.display = 'block';
+        } else {
+            template.style.display = 'none';
+        }
+    });
+}
