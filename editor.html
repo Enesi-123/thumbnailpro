@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Image Customizer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="T.png" type="image/png">
     <style>
         .editor-container {
             position: relative;
@@ -16,29 +18,63 @@
         }
         .upload-inputs {
             margin-bottom: 10px;
+            position: relative;
+            display: flex;
+            top: 400px;
+            left: 75px;
+            appearance: none;
+            border: 0;
         }
         .preview-image {
             position: relative;
             display: flex;
             width: 900px;
             height: 520px;
-            bottom: 260px;
         }
+        button, input[type="file"] {
+             appearance: none;          
+             background: none;
+             border: none;            
+             padding: 0;             
+             margin: 0;                 
+             font: inherit;             
+             color: inherit;            
+             cursor: pointer;           
+             outline: none; }
         .button-container {
             position: absolute;
             display: flex;
             top: 30px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #00C4FF;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+        .custom-file-button {
+    /* Your custom styles here */
+          background-color: #00C4FF;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          text-align: center;
+          font-size: 1.2rem; }
+        
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="thumbnail"> <a href="website.htm"> <img class="thumbnail" src="thumbnail.png" alt="ThumbnailPro logo"> </a> </div>
+        <div class="thumbnail"> <a href="index.htm"> <img class="thumbnail" src="thumbnail.png" alt="ThumbnailPro logo"> </a> </div>
         <div class="navigation">
             <nav>
                 <ul class="navbar">
                     <li><a href="review.htm">Reviews</a></li>
-                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="templates.htm">Templates</a></li>
                     <li><a href="pricing.htm">Pricing</a></li>
                     <li><a href="socials.htm">Socials</a></li>
                     <li><a href="about.htm">About</a></li>
@@ -48,20 +84,43 @@
     </header>
     
     <div class="upload-inputs">
-        <label>Replace Image: <input type="file" id="logo2Upload" accept="image/*"></label>
+        <input type="file" id="file-upload" style="display: none;">
+<label for="file-upload" class="custom-file-button">Choose File</label>
+
         <div class="button-container">
             <button onclick="downloadImage()">Download Image</button>
         </div>
     </div>
 
     <div class="editor-container" id="editor">
-        <img src="background.png" alt="Background" style="width:100%; height:100%;">
         <div class="preview-image"> 
             <img id="logo1Preview" class="preview-image"> 
         </div>
     </div>
 
     <script>
+        function handleFileUpload(inputId, previewId) {
+            const fileInput = document.getElementById(inputId);
+            const previewImage = document.getElementById(previewId);
+
+            fileInput.addEventListener('change', () => {
+                const file = fileInput.files[0];
+                if (file && file.type.startsWith("image/")) {
+                    previewImage.src = URL.createObjectURL(file);
+                    previewImage.onload = () => {
+                        URL.revokeObjectURL(previewImage.src);
+                    };
+                } else {
+                    alert("Please upload a valid image file.");
+                }
+            });
+        }
+
+        // Load the image from the URL parameter
+        function loadImageFromUrlParam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageUrl = urlParams.get('image'); }
+
         function handleFileUpload(inputId, previewId) {
             const fileInput = document.getElementById(inputId);
             const previewImage = document.getElementById(previewId);
@@ -96,16 +155,16 @@
             html2canvas(editor).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'custom_image.png'; // Specify the name of the downloaded file
+                link.download = 'image1.jpeg'; // Specify the name of the downloaded file
                 link.click();
             });
         }
 
         // Initialize file upload handlers and load image from URL parameter
         document.addEventListener('DOMContentLoaded', () => {
-            handleFileUpload('logo2Upload', 'logo1Preview');
-            loadImageFromUrlParam();
-        });
+    handleFileUpload('file-upload', 'logo1Preview'); // Use 'file-upload' instead of 'logo2Upload'
+    loadImageFromUrlParam();
+});
         // Express server code to proxy requests
         const express = require('express');
         const request = require('request');
@@ -118,10 +177,8 @@ app.get('/proxy', (req, res) => {
 
 app.listen(3000, () => {
     console.log('Proxy server is running on http://localhost:3000');
-});
+}); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 </html>

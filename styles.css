@@ -492,7 +492,7 @@ navbar-2 li {
     cursor: pointer;
     position: relative;
     top: 75px;
-
+    transition: color 0.3s, text-decoration 0.3s;
 }
 
 .filter-button:hover {
@@ -500,8 +500,10 @@ navbar-2 li {
 }
 
 .template-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100vw;
+    gap: 25px;
     align-items: center;
     position: relative;
     top: 75px;
@@ -511,8 +513,14 @@ navbar-2 li {
     background: rgba(5, 7, 34, 0.95);
     border: 1px solid rgb(2, 3, 17);
     border-radius: 4px;
-    padding: 10px;
-    margin: 5px;
-    width: 90%; /* Adjust width as needed */
+    width: 100%; /* Adjust width as needed */
     text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
 }
+.template-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }

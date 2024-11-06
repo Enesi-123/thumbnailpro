@@ -16,7 +16,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="thumbnail"> <a href="website.htm"> <img class="thumbnail" src="thumbnail.png" alt="ThumbnailPro logo"> </a> </div>
+        <div class="thumbnail"> <a href="index.htm"> <img class="thumbnail" src="thumbnail.png" alt="ThumbnailPro logo"> </a> </div>
         <div class="navigation">
             <nav>
                 <ul class="navbar">
@@ -51,14 +51,27 @@
     </div>
 
     <div class="template-list" id="templateList">
-        <div class="template-item" data-category="business">Business Thumbnail A</div>
-        <div class="template-item" data-category="education">Education Thumbnail B</div>
-        <div class="template-item" data-category="events">Event Thumbnail C</div>
-        <div class="template-item" data-category="social-media">Social Media Thumbnail D</div>
-        <div class="template-item" data-category="business">Business Thumbnail E</div>
+        <div class="template-item" data-category="business"><a href="editor.html"><img src="money rap.png" alt="Money"></a></div>
+        <div class="template-item" data-category="education">           <a href="editor.html"   onclick="redirectToEditor(tutorial.png)"                                 >
+            <img src="tutorial.png" alt="Tutorial"></a></div>
+        <div class="template-item" data-category="events">
+            <a href="editor.html" onclick="redirectToEditor(pro.png)"         >
+                <img src="pro.png" alt="Event"></a></div>
+        <div class="template-item" data-category="social-media">
+            <a href="editor.html" onclick="redirectToEditor(skeleton.png)"         >
+                <img src="skeleton.png" alt="Minecraft Thumbnails"></a></div>
+        <div class="template-item" data-category="business">
+            <a href="editor.html" onclick="redirectToEditor(rich.png)"         >
+                <img src="rich.png" alt="Get Thumbnails Fast"></a></div>
     </div>
 
-
+    <script>
+        function redirectToEditor(imageUrl) {
+            // Redirect to editor.html with the image URL as a parameter
+            window.location.href = `editor.html?image=${encodeURIComponent(imageUrl)}`;
+        }
+    </script>
+    
 <script src="script.js"></script>
 </body>
 </html>
